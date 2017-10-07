@@ -42,7 +42,7 @@ public class UserContract extends Contract {
                     NAME + COMMA +
                     SECOND_NAME + COMMA +
                     EMAIL + COMMA +
-                    BIRTHDAY + COMMA +
+                    BIRTHDAY +
                     CLOSE + VALUES + OPEN +
                     "?, ?, ?, ?, ?" + CLOSE;
 
