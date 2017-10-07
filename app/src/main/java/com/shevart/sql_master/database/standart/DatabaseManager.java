@@ -9,6 +9,7 @@ import com.shevart.sql_master.models.User;
 
 import java.util.List;
 
+// TODO: 07.10.17 add comment-docs
 public class DatabaseManager {
     private SQLiteDatabase database;
 

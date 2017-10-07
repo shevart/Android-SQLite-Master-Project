@@ -10,4 +10,9 @@ public class AppConfiguration {
         public static final int DATABASE_VERSION = 1;
         public static final String DATABASE_NAME = "sqlite-master";
     }
+
+    public static class DatabaseByBuilders {
+        public static final int DATABASE_VERSION = 1;
+        public static final String DATABASE_NAME = "sqlite-master_builders";
+    }
 }

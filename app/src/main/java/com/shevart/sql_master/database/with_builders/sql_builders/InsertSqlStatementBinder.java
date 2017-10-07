@@ -4,6 +4,8 @@ import android.database.sqlite.SQLiteStatement;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import java.util.Date;
+
 import static com.shevart.sql_master.util.Utils.checkNonNull;
 import static com.shevart.sql_master.util.Utils.checkNonNullOrEmpty;
 import static com.shevart.sql_master.util.Utils.isNonNullOrEmpty;
@@ -15,27 +17,27 @@ import static com.shevart.sql_master.util.Utils.isNonNullOrEmpty;
  *  <br/><br/>
  */
 @SuppressWarnings({"unused", "WeakerAccess"})
-public class SqlStatementBuilder {
+public class InsertSqlStatementBinder {
     private final SQLiteStatement sqLiteStatement;
     private int count = 0;
 
-    private SqlStatementBuilder(@NonNull SQLiteStatement sqLiteStatement) {
+    private InsertSqlStatementBinder(@NonNull SQLiteStatement sqLiteStatement) {
         checkNonNull(sqLiteStatement);
         this.sqLiteStatement = sqLiteStatement;
         this.sqLiteStatement.clearBindings();
     }
 
-    public static SqlStatementBuilder startBind(@NonNull SQLiteStatement sqLiteStatement) {
-        return new SqlStatementBuilder(sqLiteStatement);
+    public static InsertSqlStatementBinder startBind(@NonNull SQLiteStatement sqLiteStatement) {
+        return new InsertSqlStatementBinder(sqLiteStatement);
     }
 
-    public SqlStatementBuilder bindString(@NonNull String s) {
+    public InsertSqlStatementBinder bindString(@NonNull String s) {
         checkNonNullOrEmpty(s);
         sqLiteStatement.bindString(++count, s);
         return this;
     }
 
-    public SqlStatementBuilder bindStringEmptySafely(@Nullable String s) {
+    public InsertSqlStatementBinder bindStringEmptySafe(@Nullable String s) {
         if (isNonNullOrEmpty(s)) {
             sqLiteStatement.bindString(++count, "");
         } else {
@@ -45,7 +47,7 @@ public class SqlStatementBuilder {
     }
 
     @Deprecated
-    public SqlStatementBuilder bindStringSafely(@Nullable String s) {
+    public InsertSqlStatementBinder bindStringSafely(@Nullable String s) {
         count++;
         if (!isNonNullOrEmpty(s)) {
             sqLiteStatement.bindString(count, s);
@@ -53,13 +55,18 @@ public class SqlStatementBuilder {
         return this;
     }
 
-    public SqlStatementBuilder bindLong(long l) {
+    public InsertSqlStatementBinder bindLong(long l) {
         sqLiteStatement.bindLong(++count, l);
         return this;
     }
 
-    public SqlStatementBuilder bindDouble(double d) {
+    public InsertSqlStatementBinder bindDouble(double d) {
         sqLiteStatement.bindDouble(++count, d);
+        return this;
+    }
+
+    public InsertSqlStatementBinder bindDate(@Nullable Date date) {
+        sqLiteStatement.bindLong(++count, date != null ? date.getTime() : 0);
         return this;
     }
 
