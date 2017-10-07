@@ -16,5 +16,6 @@ public class MainActivity extends AppCompatActivity {
         // todo remove this code after test
         DatabaseManager databaseManager = new DatabaseManager(getApplicationContext());
         databaseManager.saveUser(MockUtil.Users.nextUser());
+        databaseManager.saveUsersList(MockUtil.Users.nextUsersList());
     }
 }

@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import com.shevart.sql_master.database.dao.UserDao;
 import com.shevart.sql_master.models.User;
 
+import java.util.List;
+
 public class DatabaseManager {
     private SQLiteDatabase database;
 
@@ -17,5 +19,9 @@ public class DatabaseManager {
 
     public User saveUser(@NonNull User user) {
         return UserDao.saveUser(database, user);
+    }
+
+    public List<User> saveUsersList(@NonNull List<User> users) {
+        return UserDao.saveUsersList(database, users);
     }
 }

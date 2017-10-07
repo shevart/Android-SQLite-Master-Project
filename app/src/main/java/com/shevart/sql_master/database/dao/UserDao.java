@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import com.shevart.sql_master.database.contract.UserContract;
 import com.shevart.sql_master.models.User;
 
+import java.util.List;
+
 @SuppressWarnings("unused")
 public class UserDao extends BaseDao {
     private UserDao() {
@@ -16,7 +18,7 @@ public class UserDao extends BaseDao {
         final SQLiteStatement statement = database.compileStatement(UserContract.Script.Insert.INSERT);
         try {
             database.beginTransaction();
-            bindInsert(statement, user);
+            insertUser(statement, user);
             database.setTransactionSuccessful();
         } finally {
             database.endTransaction();
@@ -24,7 +26,21 @@ public class UserDao extends BaseDao {
         return user;
     }
 
-    private static void bindInsert(@NonNull SQLiteStatement statement, @NonNull User user) {
+    public static List<User> saveUsersList(@NonNull SQLiteDatabase database, @NonNull List<User> users) {
+        final SQLiteStatement statement = database.compileStatement(UserContract.Script.Insert.INSERT);
+        try {
+            database.beginTransaction();
+            for (User user : users) {
+                insertUser(statement, user);
+            }
+            database.setTransactionSuccessful();
+        } finally {
+            database.endTransaction();
+        }
+        return users;
+    }
+
+    private static void insertUser(@NonNull SQLiteStatement statement, @NonNull User user) {
         statement.bindLong(1, user.getId());
         bindString(statement, 2, user.getName());
         bindString(statement, 3, user.getSecondName());
