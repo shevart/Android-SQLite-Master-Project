@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import com.shevart.sql_master.database.with_builders.dao.UserDaoByBuilders;
 import com.shevart.sql_master.models.User;
 
+import java.util.List;
+
 // TODO: 07.10.17 add comment-docs
 public class DatabaseByBuildersManager {
     private SQLiteDatabase database;
@@ -18,5 +20,9 @@ public class DatabaseByBuildersManager {
 
     public User saveUser(@NonNull User user) {
         return UserDaoByBuilders.save(database, user);
+    }
+
+    public List<User> saveUsersList(@NonNull List<User> users) {
+        return UserDaoByBuilders.save(database, users);
     }
 }

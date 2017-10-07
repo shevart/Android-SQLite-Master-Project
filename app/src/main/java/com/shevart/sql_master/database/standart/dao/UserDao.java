@@ -15,7 +15,7 @@ public class UserDao extends BaseDao {
     private UserDao() {
     }
 
-    public static User saveUser(@NonNull SQLiteDatabase database, @NonNull User user) {
+    public static User save(@NonNull SQLiteDatabase database, @NonNull User user) {
         final SQLiteStatement statement = database.compileStatement(UserContract.Script.Insert.INSERT);
         try {
             database.beginTransaction();
@@ -27,7 +27,7 @@ public class UserDao extends BaseDao {
         return user;
     }
 
-    public static List<User> saveUsersList(@NonNull SQLiteDatabase database, @NonNull List<User> users) {
+    public static List<User> save(@NonNull SQLiteDatabase database, @NonNull List<User> users) {
         final SQLiteStatement statement = database.compileStatement(UserContract.Script.Insert.INSERT);
         try {
             database.beginTransaction();

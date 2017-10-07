@@ -19,10 +19,10 @@ public class DatabaseManager {
     }
 
     public User saveUser(@NonNull User user) {
-        return UserDao.saveUser(database, user);
+        return UserDao.save(database, user);
     }
 
     public List<User> saveUsersList(@NonNull List<User> users) {
-        return UserDao.saveUsersList(database, users);
+        return UserDao.save(database, users);
     }
 }

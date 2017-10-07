@@ -9,6 +9,8 @@ import com.shevart.sql_master.database.with_builders.contract.UserContractByBuil
 import com.shevart.sql_master.database.with_builders.sql_builders.InsertSqlStatementBinder;
 import com.shevart.sql_master.models.User;
 
+import java.util.List;
+
 public class UserDaoByBuilders extends BaseDao {
     private UserDaoByBuilders() {
     }
@@ -23,6 +25,21 @@ public class UserDaoByBuilders extends BaseDao {
             database.endTransaction();
         }
         return user;
+    }
+
+    public static List<User> save(@NonNull SQLiteDatabase database, @NonNull List<User> users) {
+        final SQLiteStatement statement = database.compileStatement(UserContractByBuilders.Script.Insert.INSERT_FROM_BUILDER);
+        try {
+            database.beginTransaction();
+            for (User user : users) {
+                insertUser(statement, user);
+            }
+            database.setTransactionSuccessful();
+        } finally {
+            database.endTransaction();
+        }
+
+        return users;
     }
 
     private static void insertUser(@NonNull SQLiteStatement statement, @NonNull User user) {
