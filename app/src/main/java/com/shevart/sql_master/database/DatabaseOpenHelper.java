@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.shevart.sql_master.core.AppConfiguration;
+import com.shevart.sql_master.database.contract.UserContract;
 
 class DatabaseOpenHelper extends SQLiteOpenHelper {
     DatabaseOpenHelper(Context context) {
@@ -14,7 +15,8 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+        // create tables
+        sqLiteDatabase.execSQL(UserContract.Script.Create.CREATE);
     }
 
     @Override

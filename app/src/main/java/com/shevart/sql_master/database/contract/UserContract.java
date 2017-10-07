@@ -1,6 +1,7 @@
 package com.shevart.sql_master.database.contract;
 
 import com.shevart.sql_master.database.sql_builders.CreateTableBuilder;
+import com.shevart.sql_master.database.sql_builders.InsertSqlStatementBuilder;
 
 @SuppressWarnings("WeakerAccess")
 public class UserContract extends Contract {
@@ -34,6 +35,28 @@ public class UserContract extends Contract {
                     .addIntegerColumn(BIRTHDAY)
                     .toSql();
         }
-    }
 
+        public static class Insert {
+            public static final String INSERT = INSERT_OR_REPLACE_INTO + TABLE_NAME + OPEN +
+                    ID + COMMA +
+                    NAME + COMMA +
+                    SECOND_NAME + COMMA +
+                    EMAIL + COMMA +
+                    BIRTHDAY + COMMA +
+                    CLOSE + VALUES + OPEN +
+                    "?, ?, ?, ?, ?" + CLOSE;
+
+            /***
+             *  Another way to define insert data script by {@link InsertSqlStatementBuilder}.
+             */
+            public static final String INSERT_FROM_BUILDER = InsertSqlStatementBuilder
+                    .createInsertOrReplaceSqlStatement(TABLE_NAME)
+                    .addColumn(ID)
+                    .addColumn(NAME)
+                    .addColumn(SECOND_NAME)
+                    .addColumn(EMAIL)
+                    .addColumn(BIRTHDAY)
+                    .createSQSqLiteStatement();
+        }
+    }
 }
