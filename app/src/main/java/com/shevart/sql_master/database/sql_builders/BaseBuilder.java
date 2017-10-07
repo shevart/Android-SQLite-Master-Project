@@ -1,6 +1,6 @@
 package com.shevart.sql_master.database.sql_builders;
 
-import com.shevart.sql_master.database.base_sql.Contract;
+import com.shevart.sql_master.database.contract.Contract;
 
 /***
  *  <h3>Developer description</h3>

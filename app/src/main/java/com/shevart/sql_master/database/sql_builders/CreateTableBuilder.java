@@ -2,7 +2,7 @@ package com.shevart.sql_master.database.sql_builders;
 
 import android.support.annotation.NonNull;
 
-import com.shevart.sql_master.database.base_sql.Contract;
+import com.shevart.sql_master.database.contract.Contract;
 
 import static com.shevart.sql_master.util.Utils.checkNonNullOrEmpty;
 
