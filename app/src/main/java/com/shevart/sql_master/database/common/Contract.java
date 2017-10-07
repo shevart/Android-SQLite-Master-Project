@@ -1,4 +1,4 @@
-package com.shevart.sql_master.database.contract;
+package com.shevart.sql_master.database.common;
 
 /***
  *  <h3>Developer description</h3>

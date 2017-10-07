@@ -1,4 +1,4 @@
-package com.shevart.sql_master.database.sql_builders;
+package com.shevart.sql_master.database.with_builders.sql_builders;
 
 import android.database.sqlite.SQLiteStatement;
 import android.support.annotation.NonNull;

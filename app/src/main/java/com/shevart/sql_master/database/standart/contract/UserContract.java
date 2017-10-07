@@ -1,4 +1,6 @@
-package com.shevart.sql_master.database.contract;
+package com.shevart.sql_master.database.standart.contract;
+
+import com.shevart.sql_master.database.common.Contract;
 
 @SuppressWarnings("WeakerAccess")
 public class UserContract extends Contract {

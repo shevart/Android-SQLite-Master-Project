@@ -1,10 +1,10 @@
-package com.shevart.sql_master.database;
+package com.shevart.sql_master.database.standart;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
-import com.shevart.sql_master.database.dao.UserDao;
+import com.shevart.sql_master.database.standart.dao.UserDao;
 import com.shevart.sql_master.models.User;
 
 import java.util.List;

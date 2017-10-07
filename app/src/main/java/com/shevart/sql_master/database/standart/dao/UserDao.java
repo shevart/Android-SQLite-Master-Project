@@ -1,10 +1,11 @@
-package com.shevart.sql_master.database.dao;
+package com.shevart.sql_master.database.standart.dao;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.support.annotation.NonNull;
 
-import com.shevart.sql_master.database.contract.UserContract;
+import com.shevart.sql_master.database.common.BaseDao;
+import com.shevart.sql_master.database.standart.contract.UserContract;
 import com.shevart.sql_master.models.User;
 
 import java.util.List;

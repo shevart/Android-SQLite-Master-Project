@@ -1,4 +1,4 @@
-package com.shevart.sql_master.database.dao;
+package com.shevart.sql_master.database.common;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;
@@ -14,38 +14,38 @@ import java.util.Date;
  *  <br/><br/>
  */
 @SuppressWarnings("unused")
-abstract class BaseDao {
-    static boolean parseBoolean(@NonNull Cursor cursor, @NonNull final String KEY) { // 0 (false) and 1 (true)
+public abstract class BaseDao {
+    protected static boolean parseBoolean(@NonNull Cursor cursor, @NonNull final String KEY) { // 0 (false) and 1 (true)
         return cursor.getInt(cursor.getColumnIndex(KEY)) != 0;
     }
 
-    static int parseInt(@NonNull Cursor cursor, @NonNull final String KEY) {
+    protected static int parseInt(@NonNull Cursor cursor, @NonNull final String KEY) {
         return cursor.getInt(cursor.getColumnIndex(KEY));
     }
 
-    static double parseDouble(@NonNull Cursor cursor, @NonNull final String KEY) {
+    protected static double parseDouble(@NonNull Cursor cursor, @NonNull final String KEY) {
         return cursor.getDouble(cursor.getColumnIndex(KEY));
     }
 
-    static long parseLong(@NonNull Cursor cursor, @NonNull final String KEY) {
+    protected static long parseLong(@NonNull Cursor cursor, @NonNull final String KEY) {
         return cursor.getLong(cursor.getColumnIndex(KEY));
     }
 
-    static String parseString(@NonNull Cursor cursor, @NonNull final String KEY) {
+    protected static String parseString(@NonNull Cursor cursor, @NonNull final String KEY) {
         return cursor.getString(cursor.getColumnIndex(KEY));
     }
 
     @Nullable
-    static Date parseDate(@NonNull Cursor cursor, @NonNull final String KEY) {
+    protected static Date parseDate(@NonNull Cursor cursor, @NonNull final String KEY) {
         final long time = cursor.getLong(cursor.getColumnIndex(KEY));
         return time > 0 ? new Date(time) : null;
     }
 
-    static void bindString(@NonNull SQLiteStatement sqLiteStatement, int index, @Nullable String value) {
+    protected static void bindString(@NonNull SQLiteStatement sqLiteStatement, int index, @Nullable String value) {
         if (value != null) sqLiteStatement.bindString(index, value);
     }
 
-    static void bindDate(@NonNull SQLiteStatement statement, int index, @Nullable Date date) {
+    protected static void bindDate(@NonNull SQLiteStatement statement, int index, @Nullable Date date) {
         statement.bindLong(index, date != null ? date.getTime() : 0);
     }
 }

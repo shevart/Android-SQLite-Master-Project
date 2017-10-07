@@ -54,7 +54,7 @@ public class MockUtil {
     }
 
     private static String nextEmail(@NonNull String name) {
-        return String.format(Locale.ENGLISH, EMAIL_PATTERN, name,
+        return String.format(Locale.ENGLISH, EMAIL_PATTERN, name.toLowerCase(),
                 emailDomains.get(random.nextInt(emailDomains.size())));
     }
 

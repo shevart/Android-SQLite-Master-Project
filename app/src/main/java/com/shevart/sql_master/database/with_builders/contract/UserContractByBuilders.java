@@ -1,8 +1,8 @@
-package com.shevart.sql_master.database.contract.by_builders;
+package com.shevart.sql_master.database.with_builders.contract;
 
-import com.shevart.sql_master.database.contract.Contract;
-import com.shevart.sql_master.database.sql_builders.CreateTableBuilder;
-import com.shevart.sql_master.database.sql_builders.InsertSqlStatementBuilder;
+import com.shevart.sql_master.database.common.Contract;
+import com.shevart.sql_master.database.with_builders.sql_builders.CreateTableBuilder;
+import com.shevart.sql_master.database.with_builders.sql_builders.InsertSqlStatementBuilder;
 
 @SuppressWarnings("WeakerAccess")
 public class UserContractByBuilders extends Contract {
