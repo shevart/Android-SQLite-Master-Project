@@ -2,6 +2,8 @@ package com.shevart.sql_master.util;
 
 import android.support.annotation.Nullable;
 
+import java.util.List;
+
 /**
  * <h3>Developer description</h3>
  * Utility class containing universal null checking methods.
@@ -21,6 +23,10 @@ public class Utils {
 
     public static boolean isNonNullOrEmpty(@Nullable String s) {
         return !(s == null || s.isEmpty());
+    }
+
+    public static boolean isNullOrEmpty(@Nullable List list) {
+        return list == null || list.isEmpty();
     }
 
     public static String checkNonNullOrEmpty(@Nullable String s) {
