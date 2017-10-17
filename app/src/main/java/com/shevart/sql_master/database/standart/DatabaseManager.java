@@ -11,6 +11,7 @@ import com.shevart.sql_master.models.User;
 import java.util.List;
 
 // TODO: 07.10.17 add comment-docs
+@SuppressWarnings("WeakerAccess")
 public class DatabaseManager {
     private SQLiteDatabase database;
 
@@ -29,5 +30,9 @@ public class DatabaseManager {
 
     public List<User> saveUsersList(@NonNull List<User> users) {
         return UserDao.save(database, users);
+    }
+
+    public User getUserById(long userId) {
+        return UserDao.getUserById(userId);
     }
 }

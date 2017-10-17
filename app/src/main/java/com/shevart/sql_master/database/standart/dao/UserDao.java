@@ -41,6 +41,10 @@ public class UserDao extends BaseDao {
         return users;
     }
 
+    public static User getUserById(long userId) {
+        return null;
+    }
+
     private static void insertUser(@NonNull SQLiteStatement statement, @NonNull User user) {
         statement.bindLong(1, user.getId());
         bindString(statement, 2, user.getName());
