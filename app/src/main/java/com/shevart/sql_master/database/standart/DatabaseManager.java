@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
+import com.shevart.sql_master.database.standart.dao.DatabaseDemoDao;
 import com.shevart.sql_master.database.standart.dao.UserDao;
 import com.shevart.sql_master.models.User;
 
@@ -16,6 +17,10 @@ public class DatabaseManager {
     public DatabaseManager(@NonNull Context context) {
         DatabaseOpenHelper helper = new DatabaseOpenHelper(context);
         database = helper.getWritableDatabase();
+    }
+
+    public void demoDatabaseMethods() {
+        DatabaseDemoDao.exploreDatabaseMethods(database);
     }
 
     public User saveUser(@NonNull User user) {

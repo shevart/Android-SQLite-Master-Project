@@ -22,5 +22,7 @@ public class MainActivity extends AppCompatActivity {
         DatabaseByBuildersManager databaseByBuildersManager = new DatabaseByBuildersManager(getApplicationContext());
         databaseByBuildersManager.saveUser(MockUtil.Users.nextUser());
         databaseByBuildersManager.saveUsersList(MockUtil.Users.nextUsersList());
+
+        databaseManager.demoDatabaseMethods();
     }
 }

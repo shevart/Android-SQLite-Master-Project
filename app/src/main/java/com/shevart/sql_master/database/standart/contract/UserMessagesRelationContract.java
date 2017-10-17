@@ -13,7 +13,7 @@ public class UserMessagesRelationContract extends Contract {
         public static class Create {
             public static final String CREATE = CREATE_TABLE + TABLE_NAME + OPEN +
                     USER_ID + INTEGER + COMMA +
-                    MESSAGE_ID + INTEGER + COMMA + CLOSE;
+                    MESSAGE_ID + INTEGER + PRIMARY_KEY + CLOSE;
         }
 
         public static class Insert {
